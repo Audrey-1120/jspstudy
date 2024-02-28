@@ -59,4 +59,24 @@
     <servlet-name>Destination</servlet-name>
     <url-pattern>/destination</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Destination1</display-name>
+    <servlet-name>Destination1</servlet-name>
+    <servlet-class>pkg05_redirect.Destination1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Destination1</servlet-name>
+    <url-pattern>/destination1</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Destination2</display-name>
+    <servlet-name>Destination2</servlet-name>
+    <servlet-class>pkg05_redirect.Destination2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Destination2</servlet-name>
+    <url-pattern>/destination2</url-pattern>
+  </servlet-mapping>
 </web-app>

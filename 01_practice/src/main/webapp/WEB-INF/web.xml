@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
-  <display-name>01_servlet</display-name>
+  <display-name>01_practice</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
@@ -9,6 +9,16 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>HelloWorld</display-name>
+    <servlet-name>HelloWorld</servlet-name>
+    <servlet-class>test.HelloWorld</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloWorld</servlet-name>
+    <url-pattern>/HelloWorld</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>LifeCycle</display-name>
@@ -28,35 +38,5 @@
   <servlet-mapping>
     <servlet-name>MyRequest</servlet-name>
     <url-pattern>/request</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>MyResponse</display-name>
-    <servlet-name>MyResponse</servlet-name>
-    <servlet-class>pkg3_response.MyResponse</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>MyResponse</servlet-name>
-    <url-pattern>/response</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>StopOver</display-name>
-    <servlet-name>StopOver</servlet-name>
-    <servlet-class>pkg04_forward.StopOver</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>StopOver</servlet-name>
-    <url-pattern>/stopover</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Destination</display-name>
-    <servlet-name>Destination</servlet-name>
-    <servlet-class>pkg04_forward.Destination</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Destination</servlet-name>
-    <url-pattern>/destination</url-pattern>
   </servlet-mapping>
 </web-app>
