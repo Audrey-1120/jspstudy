@@ -129,4 +129,24 @@
     <servlet-name>DeleteCookie</servlet-name>
     <url-pattern>/deleteCookie</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetData1</display-name>
+    <servlet-name>GetData1</servlet-name>
+    <servlet-class>pkg08_ajax.GetData1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetData1</servlet-name>
+    <url-pattern>/getData1</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetData2</display-name>
+    <servlet-name>GetData2</servlet-name>
+    <servlet-class>pkg08_ajax.GetData2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetData2</servlet-name>
+    <url-pattern>/getData2</url-pattern>
+  </servlet-mapping>
 </web-app>

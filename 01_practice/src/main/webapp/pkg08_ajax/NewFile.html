@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+  <div>
+    <button type="button" id="btn1">정보 가져오기</button>
+  </div>
+  <table border="1">
+    <tbody id="content1"></tbody>
+  </table>
+  
+  <script>
+  
+    const getData1 = () => {
+    	
+    	const options = {
+    		method: 'GET'	
+    	}
+    	
+    	fetch('/practice/getDat1', options)
+    	 .then(response=>response.text())
+    	 .then(resData=>{
+    		 console.log(resData);
+    	 })
+    }
+    document.getElementById('btn1').addEventListener('click', getData1());
+  
+  </script>
+
+</body>
+</html>
