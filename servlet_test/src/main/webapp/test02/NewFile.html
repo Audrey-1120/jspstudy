@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+  <div>
+  
+        
+    <button id="btn" type="button">새로고침</button>
+    <div id="quiz">
+      <span id="a" name="a"></span>&nbspX
+      <span id="b" name="b"></span>&nbsp=
+      <span id="correctanswer"></span>
+    </div>
+    <input type="text" id="answer" name="answer">
+    <button id="countbtn" type="submit">계산</button>
+        
+     
+    
+    
+
+  </div>
+  
+  <script>
+  
+  let a = document.getElementById('a');
+  let b = document.getElementById('b');
+  let correctanswer = document.getElementById('correctanswer');
+  
+  
+  
+  let Numa = parseInt(Math.random() * 9 + 1);
+  let Numb = parseInt(Math.random() * 9 + 1);
+  
+  
+  a.innerHTML = Numa;
+  b.innerHTML = Numb;
+  correctanswer.value = Numa * Numb;
+  
+  console.log(Numa, Numb, correctanswer.value, answer);
+
+  
+  
+  
+  
+  
+  document.getElementById('btn').addEventListener('click', (evt)=>{
+	  
+	  Numa = parseInt(Math.random() * 9 + 1);
+	  Numb = parseInt(Math.random() * 9 + 1);
+	  
+	  a.innerHTML = Numa;
+	  b.innerHTML = Numb;
+	  
+	  
+	  
+	  
+	  
+  });
+  
+  document.getElementById('countbtn').addEventListener('click', (evt)=>{
+	  
+	  let answer = document.getElementById('answer').value;
+	  
+	  
+	  location.href='/test/gugudan?a=' + Numa + '&b=' + Numb + '&answer=' + answer; 
+	  
+  })
+  
+      
+      
+    
+  
+  </script>
+
+</body>
+</html>

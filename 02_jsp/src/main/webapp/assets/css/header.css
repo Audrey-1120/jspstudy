@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.header-wrap {
+  height: 100px;
+}
+
+.header-wrap a {
+  text-decoration: none;
+  color: maroon;
+  font-weight: 600;
+  font-size: 13px;
+}

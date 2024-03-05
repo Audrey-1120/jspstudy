@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+  <style>
+    
+    .inp-wrap {
+      width: 600px;
+    }
+    
+    label {
+      display: inline-block;
+      width: 600px;
+    }
+  
+  </style>
+
+
+  <form id="frm"
+        method="post"
+        action="/test/login">
+    <div class="inp-wrap">
+      <label for="id">아이디</label>
+      <input type="text" name="id" id="id">@naver.com
+    </div>
+    <div class="inp-wrap">
+      <label for="password">비밀번호</label>
+      <input type="password" name="password" id="password">
+    </div>
+    <div class="inp-wrap">
+      <label for="password">비밀번호 재확인</label>
+      <input type="password" name="passwordCheck" id="passwordCheck">
+    </div>
+    <div class="inp-wrap">
+      <label for="name">이름</label>
+      <input type="text" name="name" id="name">
+    </div>
+    <div class="inp-wrap">
+      <label for="birth">생년월일</label>
+      <input type="text" name="birth" id="birthYear" placeholder="년(4자)">
+      <select name="birth" id="birthMonth">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <input type="text" name="birth" id="birthDay" placeholder="일">
+    </div>
+    <div class="inp-wrap">성별
+      <select name="gender">
+        <option value="none">성별</option>
+        <option value="man">남</option>
+        <option value="woman">여</option>
+      </select>
+    </div>
+    <div class="inp-wrap">
+      <label for="checkEmail">본인 확인 이메일(선택)</label>
+      <input type="text" name="checkEmail" id="checkEmail" placeholder="선택입력">
+    </div>
+    <div class="inp-wrap">휴대전화
+      <select name="mobile">
+        <option value="대한민국 +82" selected>대한민국 +82</option>
+        <option value="미국 +1">미국 +1</option>
+        <option value="이집트 +20">이집트 +20</option>
+      </select>
+      <input type="text" name="mobile" id="mobile" placeholder="전화번호 입력">
+      
+      <button type="submit" id="secureNumbtn">인증번호 받기</button>
+      <input type="text" id="secureNum" name="secureNum" placeholder="인증번호 입력하세요">
+    </div>
+    <div class="btn-wrap">
+      <button type="submit" id="">가입하기</button>
+    </div>
+    
+    
+    <script>
+
+      document.getElementById('frm').addEventListener('submit', (evt) => {
+    	  
+    	  
+    	  fnValidId();
+    	  fnValidPw();
+    	  fnValidPwCheck();
+    	
+    	  function fnValidId() {
+    		  let checkId = document.getElementById('id');
+  	        if(checkId.value === '') {
+  	          alert('아이디는 필수입니다.');
+  	          checkId.focus();
+  	          evt.preventDefault();
+  	          return;
+  	        }  
+    	  }
+    	  
+    	  
+  	    function fnValidPw() {
+	        var inpPw = document.getElementById('password').value;
+	        var length = inpPw.length;
+	        var passCount = /[A-Z]/.test(inpPw)
+	                      + /[a-z]/.test(inpPw)
+	                      + /[0-9]/.test(inpPw)
+	                      + /[^A-Za-z0-9]/.test(inpPw);
+	        var cPw = length >= 8 && length <= 16 && passCount >= 3;
+	        if(!cPw){
+	        	evt.preventDefault();
+	        	alert('비밀번호를 확인하세요.');
+	        	inpPw.focus();
+	        	return;
+	        	
+	        }
+	      }
+    	    
+  	    
+  	    function fnValidPwCheck() {
+	        var inpPw = document.getElementById('password').value;
+	        var inpPwCheck = document.getElementById('passwordCheck').value;
+	        
+	        var cId = inpPw.length !== 0 && inpPw === inpPwCheck;
+	        if(!cId){
+            evt.preventDefault();
+            alert('비밀번호가 달라요.');
+            inpPwCheck.focus();
+            return;
+	        	
+	        }
+  	    }
+  	    
+    	    
+    	    
+    	    
+    	  
+      })
+      
+    
+    </script>    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+  </form>
+
+</body>
+</html>
