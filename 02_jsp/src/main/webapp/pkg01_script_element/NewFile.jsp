@@ -5,7 +5,7 @@
   지시어(directive)
   1. <%@ page %@>     : 현재 페이지 설정, import
   2. <%@ include %@>  : 현재 페이지에 다른 페이지를 포함.
-  3. <%@ taglib %@>   : 
+  3. <%@ taglib %@>   : JSTL(JavaServerPage Standard Tag Library)
   - 자바 문법을 태그로 만들어놓은 것. ex) if, for 등이 태그로 만들어짐.
  --%>
 
