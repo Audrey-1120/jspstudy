@@ -27,25 +27,23 @@
   </div>
   <script>
   
-  const frmBtn = $('#frm-btn');
-  const btnEdit = $('#btn-edit');
-  const btnRemove = $('#btn-remove');
-  
-  btnEdit.on('click', (evt)=>{
-    frmBtn.attr('action', '${contextPath}/board/edit.brd');
-    frmBtn.submit();
-  })
-  
-  btnRemove.on('click', (evt)=>{
-    if(confirm('게시글을 삭제할까요?')){
-      frmBtn.attr('action', '${contextPath}/board/remove.brd');
-      frmBtn.submit();
-    }
-  })
+    const frmBtn = $('#frm-btn');
+    const btnEdit = $('#btn-edit');
+    const btnRemove = $('#btn-remove');
     
-  </script>
+    btnEdit.on('click', (evt)=>{
+      frmBtn.attr('action', '${contextPath}/board/edit.brd');
+      frmBtn.submit();
+    })
+    
+    btnRemove.on('click', (evt)=>{
+      if(confirm('게시글을 삭제할까요?')){
+        frmBtn.attr('action', '${contextPath}/board/remove.brd');
+        frmBtn.submit();
+      }
+    })
   
-
+  </script>
 
 </body>
 </html>

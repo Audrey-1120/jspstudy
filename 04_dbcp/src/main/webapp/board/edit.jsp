@@ -16,15 +16,15 @@
         method="POST"
         action="${contextPath}/board/modify.brd">
     <div>
-      <label for="title">게시글번호</label>
-      <input type="text" id="title" name="title" value="${board.board_no}">
+      <label for="board_no">게시글번호</label>
+      <input type="text" id="board_no" name="board_no" value="${board.board_no}" readonly>
     </div>
     <div>
       <label for="title">제목</label>
       <input type="text" id="title" name="title" value="${board.title}">
     </div>
     <div>
-      <textarea rows="5" cols="50" name="contents"></textarea>
+      <textarea rows="5" cols="50" name="contents">${board.contents}</textarea>
     </div>
     <div>
       <button type="submit">수정완료</button>
@@ -35,18 +35,17 @@
 </div>
 
 <script>
-  
+
   document.getElementById('frm-edit').addEventListener('submit', (evt)=>{
-	  const title = document.getElementById('title');
-	  if(title.value === '') {
-		  alert('제목은 필수입니다.');
-		  title.focus();
-		  evt.preventDefault();
-		  return;
-	  }
-	  
+    const title = document.getElementById('title');
+    if(title.value.trim() === ''){
+      alert('제목은 필수입니다.');
+      title.focus();
+      evt.preventDefault();
+      return;
+    }
   })
-  
+
 </script>
 
 </body>

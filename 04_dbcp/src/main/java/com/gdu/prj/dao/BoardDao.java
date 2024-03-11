@@ -9,7 +9,8 @@ public interface BoardDao {
   int insertBoard(BoardDto board);
   int updateBoard(BoardDto board);
   int deleteBoard(int board_no);
-  List<BoardDto> selectBoardList(Map<String, Object> map);
+  int deleteBoards(String param);
+  List<BoardDto> selectBoardList(Map<String, Object> params);
   int getBoardCount();
   BoardDto selectBoardByNo(int board_no);
   void close();
