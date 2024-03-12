@@ -18,5 +18,4 @@ public class BoardDto {
   private String contents;
   private Date modified_at;
   private Date created_at;
-
 }

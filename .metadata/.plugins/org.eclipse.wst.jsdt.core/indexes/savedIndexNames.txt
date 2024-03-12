@@ -1,10 +1,8 @@
 INDEX VERSION 1.4+C:\GDJ77\jspstudy\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1524242040.index
 616282877.index
-3274236987.index
 3848089683.index
 195213137.index
-2255390078.index
-1524242040.index
-303509223.index
-2255390078.index
 2186037759.index
+3274236987.index
+303509223.index

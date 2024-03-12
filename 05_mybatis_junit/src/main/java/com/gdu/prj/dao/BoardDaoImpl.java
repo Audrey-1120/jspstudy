@@ -12,33 +12,29 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.gdu.prj.dto.BoardDto;
 
 public class BoardDaoImpl implements BoardDao {
-  
-  // SQLSession (Connection/{PreparedStatement/ResultSet 처리) 만드는 sqlSessionFactory
+
+  // SqlSession (Connection/PreparedStatement/ResultSet 처리) 만드는 SqlSessionFactory 객체 선언
   private SqlSessionFactory factory = null;
   
   // SingletonPattern
   private static BoardDao boardDao = new BoardDaoImpl();
   private BoardDaoImpl() {
-    
-    // mybatis-config.xml 파일을 이용한 sqlSessionFactory 객체 생성
+    // mybatis-config.xml 파일을 이용한 SqlSessionFactory 객체 생성
     try {
       String resource = "com/gdu/prj/config/mybatis-config.xml";
       InputStream in = Resources.getResourceAsStream(resource);
-      factory = new SqlSessionFactoryBuilder().build(in); 
-      // 입력 스트림을 기반(mybatis-config)으로 factory를 짓는다.
+      factory = new SqlSessionFactoryBuilder().build(in);
     } catch (Exception e) {
       e.printStackTrace();
     }
-    
   }
   public static BoardDao getInstance() {
     return boardDao;
   }
   
-  
   @Override
   public int insertBoard(BoardDto board) {
-    SqlSession sqlSession = factory.openSession(false); // autoCommit을 하지 않는다.
+    SqlSession sqlSession = factory.openSession(false);  // autoCommit을 하지 않는다.
     int insertCount = sqlSession.insert("com.gdu.prj.dao.board_t.insertBoard", board);
     if(insertCount == 1) {
       sqlSession.commit();
@@ -49,20 +45,24 @@ public class BoardDaoImpl implements BoardDao {
 
   @Override
   public int updateBoard(BoardDto board) {
-    // TODO Auto-generated method stub
-    return 0;
+    SqlSession sqlSession = factory.openSession(false);  // autoCommit을 하지 않는다.
+    int updateCount = sqlSession.update("com.gdu.prj.dao.board_t.updateBoard", board);
+    if(updateCount == 1) {
+      sqlSession.commit();
+    }
+    sqlSession.close();
+    return updateCount;
   }
 
   @Override
   public int deleteBoard(int board_no) {
-    // TODO Auto-generated method stub
-    return 0;
-  }
-
-  @Override
-  public int deleteBoards(String param) {
-    // TODO Auto-generated method stub
-    return 0;
+    SqlSession sqlSession = factory.openSession(false);  // autoCommit을 하지 않는다.
+    int deleteCount = sqlSession.delete("com.gdu.prj.dao.board_t.deleteBoard", board_no);
+    if(deleteCount == 1) {
+      sqlSession.commit();
+    }
+    sqlSession.close();
+    return deleteCount;
   }
 
   @Override
@@ -75,20 +75,18 @@ public class BoardDaoImpl implements BoardDao {
 
   @Override
   public int getBoardCount() {
-    // TODO Auto-generated method stub
-    return 0;
+    SqlSession sqlSession = factory.openSession();
+    int total = sqlSession.selectOne("com.gdu.prj.dao.board_t.getBoardCount");
+    sqlSession.close();
+    return total;
   }
 
   @Override
   public BoardDto selectBoardByNo(int board_no) {
-
-    return null;
-  }
-
-  @Override
-  public void close() {
-    // TODO Auto-generated method stub
-
+    SqlSession sqlSession = factory.openSession();
+    BoardDto board = sqlSession.selectOne("com.gdu.prj.dao.board_t.selectBoardByNo", board_no);
+    sqlSession.close();
+    return board;
   }
 
 }
